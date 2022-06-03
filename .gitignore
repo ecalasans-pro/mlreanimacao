@@ -1,0 +1,16 @@
+wandb/
+.idea/
+artifacts/
+.pytest_cache/
+venv/
+__pycache__/
+.DS_Store
+support/
+debug_train.py
+csv/
+notebooks/.pytest_cache
+notebooks/artifacts
+notebooks/wandb
+notebooks/model_export
+notebooks/*.csv
+notebooks/target_encoder
