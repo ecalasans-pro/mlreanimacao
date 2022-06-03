@@ -38,7 +38,6 @@ class Paciente(BaseModel):
     dheg: str
     dm: str
     sexo: str
-    apgar_1_minuto: float
 
     class Config:
         schema_extra = {
@@ -56,7 +55,6 @@ class Paciente(BaseModel):
                 'dheg': 'n_dheg',
                 'dm': 's_dm',
                 'sexo': 'Feminino',
-                'apgar_1_minuto': 7
             }
         }
 
