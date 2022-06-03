@@ -16,6 +16,29 @@ def test_root():
 # Testa saída para casos em que precisa de reanimação
 def test_reanimar():
     paciente = {
+        "idade_materna": 21,
+        "fumo": "n_fumo",
+        "alcool": "n_alcool",
+        "psicoativas": "n_psico",
+        "tpp": "s_tpp",
+        "dpp": "n_dpp",
+        "oligoamnio": "n_oligo",
+        "sifilis": "n_sifilis",
+        "hiv": "n_hiv",
+        "covid_mae": "n_covid",
+        "dheg": "n_dheg",
+        "dm": "n_dm",
+        "sexo": "Feminino",
+    }
+
+    r = client.post('/predict', json=paciente)
+    assert r.status_code == 200
+    assert r.json() == "Reanimar"
+
+
+# Testa saída para não reanimação
+def test_naoReanimar():
+    paciente = {
         "idade_materna": 32,
         "fumo": "n_fumo",
         "alcool": "s_alcool",
@@ -28,35 +51,10 @@ def test_reanimar():
         "covid_mae": "n_covid",
         "dheg": "n_dheg",
         "dm": "s_dm",
-        "sexo": "Feminino",
+        "sexo": "Masculino",
     }
 
     r = client.post('/predict', json=paciente)
     assert r.status_code == 200
-    assert r.json() == "Reanimar"
-
-
-# Testa saída para não reanimação
-def test_naoReanimar():
-    # Testa saída para casos em que precisa de reanimação
-    def test_reanimar():
-        paciente = {
-            "idade_materna": 32,
-            "fumo": "n_fumo",
-            "alcool": "s_alcool",
-            "psicoativas": "n_psico",
-            "tpp": "n_tpp",
-            "dpp": "n_dpp",
-            "oligoamnio": "n_oligo",
-            "sifilis": "n_sifilis",
-            "hiv": "n_hiv",
-            "covid_mae": "n_covid",
-            "dheg": "n_dheg",
-            "dm": "s_dm",
-            "sexo": "Masculino",
-        }
-
-        r = client.post('/predict', json=paciente)
-        assert r.status_code == 200
-        assert r.json() == "Não Reanimar"
+    assert r.json() == "Não Reanimar"
 
