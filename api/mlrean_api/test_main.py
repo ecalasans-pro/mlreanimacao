@@ -29,7 +29,6 @@ def test_reanimar():
         "dheg": "n_dheg",
         "dm": "s_dm",
         "sexo": "Feminino",
-        "apgar_1_minuto": 3
     }
 
     r = client.post('/predict', json=paciente)
@@ -55,7 +54,6 @@ def test_naoReanimar():
             "dheg": "n_dheg",
             "dm": "s_dm",
             "sexo": "Masculino",
-            "apgar_1_minuto": 7
         }
 
         r = client.post('/predict', json=paciente)
